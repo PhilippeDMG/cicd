@@ -1,6 +1,6 @@
 <script>
- import { goto } from "$app/navigation";
-  let unused = 42
+ // import { goto } from "$app/navigation";
+ //  let unused = 42
  // console.log(unused)
 </script>
 <svelte:head>
