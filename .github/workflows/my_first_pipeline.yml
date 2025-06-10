@@ -31,3 +31,21 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           enable_jekyll: false
+
+      - name: Notify Slack on Success
+        if: success()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{
+              "text": "✅ Deployment *succeeded* for `main` branch.\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View build logs>\n<@U091J0959EU>"
+            }' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Notify Slack on Failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{
+              "text": "❌ Deployment *failed* for `main` branch.\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View build logs>\n<@U091J0959EU>"
+            }' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
