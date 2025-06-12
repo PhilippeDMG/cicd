@@ -8,5 +8,5 @@
 </svelte:head>
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-<div>hola este texto se ve?</div>
+<div>hola este texto se ve?a</div>
 <p style="color:green;">testing automated deploy</p>
